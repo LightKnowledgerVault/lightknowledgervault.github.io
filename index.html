@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Knowledge Vault — Five Skills. One Vault.</title>
+<meta name="description" content="The Knowledge Vault is a curated membership that compounds five skills — trading, fitness, marketing, tech, and creative — in one place. Stop buying five courses from five people.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f0c08;
+    --ink-soft:#171209;
+    --parchment:#efe6d3;
+    --parchment-dim:#b9ad94;
+    --brass:#c9a35c;
+    --brass-bright:#e6c887;
+    --line:rgba(201,163,92,.22);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);
+    color:var(--parchment);
+    font-family:'Hanken Grotesk',sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+
+  /* ---------- header ---------- */
+  header{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:28px 0;border-bottom:1px solid var(--line);
+  }
+  .brand{
+    font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;
+    letter-spacing:.04em;color:var(--parchment);text-decoration:none;
+  }
+  .brand span{color:var(--brass)}
+  .pill{
+    font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--brass);border:1px solid var(--line);border-radius:999px;
+    padding:8px 16px;text-decoration:none;transition:all .3s ease;
+  }
+  .pill:hover{background:var(--brass);color:var(--ink)}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding:110px 0 90px;text-align:left}
+  .hero .dial{
+    position:absolute;right:-180px;top:40px;width:560px;height:560px;
+    border:1px solid var(--line);border-radius:50%;
+    animation:spin 90s linear infinite;pointer-events:none;
+  }
+  .hero .dial::before{
+    content:"";position:absolute;inset:60px;border:1px solid var(--line);border-radius:50%;
+  }
+  .hero .dial::after{
+    content:"";position:absolute;inset:130px;border:1px dashed rgba(201,163,92,.35);border-radius:50%;
+  }
+  .hero .dial i{
+    position:absolute;left:50%;top:-5px;width:9px;height:9px;margin-left:-4px;
+    background:var(--brass);border-radius:50%;
+    box-shadow:0 0 18px rgba(201,163,92,.8);
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media (max-width:900px){.hero .dial{display:none}}
+
+  .kicker{
+    font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--brass);
+    display:flex;align-items:center;gap:14px;margin-bottom:30px;
+    opacity:0;animation:rise .8s ease .1s forwards;
+  }
+  .kicker::before{content:"";width:36px;height:1px;background:var(--brass)}
+  h1{
+    font-family:'Fraunces',serif;font-weight:300;
+    font-size:clamp(3rem,8.5vw,6.4rem);line-height:.98;
+    letter-spacing:-.01em;max-width:11ch;
+    opacity:0;animation:rise .9s ease .25s forwards;
+  }
+  h1 em{font-style:italic;font-weight:500;color:var(--brass-bright)}
+  .hero p{
+    margin-top:34px;max-width:46ch;font-size:1.1rem;color:var(--parchment-dim);
+    opacity:0;animation:rise .9s ease .45s forwards;
+  }
+  .cta-row{margin-top:44px;display:flex;gap:18px;flex-wrap:wrap;align-items:center;
+    opacity:0;animation:rise .9s ease .6s forwards;}
+  .btn{
+    font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:.95rem;
+    background:var(--brass);color:var(--ink);text-decoration:none;
+    padding:16px 34px;border-radius:2px;letter-spacing:.02em;
+    transition:transform .25s ease, box-shadow .25s ease;
+    box-shadow:0 0 0 rgba(201,163,92,0);
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 35px rgba(201,163,92,.25)}
+  .cta-row small{color:var(--parchment-dim);font-size:.85rem}
+  @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+  /* ---------- problem strip ---------- */
+  .strip{
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:64px 0;background:var(--ink-soft);
+  }
+  .strip p{
+    font-family:'Fraunces',serif;font-weight:300;font-style:italic;
+    font-size:clamp(1.4rem,3.2vw,2.1rem);line-height:1.4;max-width:30ch;
+    margin:0 auto;text-align:center;color:var(--parchment);
+  }
+  .strip p b{color:var(--brass-bright);font-weight:500}
+
+  /* ---------- skills ---------- */
+  .skills{padding:100px 0}
+  .sec-label{
+    font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--brass);margin-bottom:18px;
+  }
+  .skills h2{
+    font-family:'Fraunces',serif;font-weight:300;
+    font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.1;margin-bottom:60px;max-width:20ch;
+  }
+  .row{
+    display:grid;grid-template-columns:90px 1fr 1.2fr;gap:24px;align-items:baseline;
+    padding:30px 8px;border-top:1px solid var(--line);
+    transition:background .3s ease,padding-left .3s ease;
+  }
+  .row:last-child{border-bottom:1px solid var(--line)}
+  .row:hover{background:rgba(201,163,92,.05);padding-left:20px}
+  .row .num{font-family:'Fraunces',serif;font-size:.95rem;color:var(--brass)}
+  .row h3{font-family:'Fraunces',serif;font-weight:500;font-size:1.45rem;letter-spacing:.01em}
+  .row p{color:var(--parchment-dim);font-size:.97rem}
+  @media (max-width:720px){.row{grid-template-columns:50px 1fr}.row p{grid-column:2}}
+
+  /* ---------- how ---------- */
+  .how{padding:20px 0 110px}
+  .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  @media (max-width:720px){.how-grid{grid-template-columns:1fr}}
+  .cell{background:var(--ink);padding:42px 30px}
+  .cell .num{font-family:'Fraunces',serif;color:var(--brass);font-size:.9rem;display:block;margin-bottom:18px}
+  .cell h4{font-family:'Fraunces',serif;font-weight:500;font-size:1.2rem;margin-bottom:12px}
+  .cell p{color:var(--parchment-dim);font-size:.93rem}
+
+  /* ---------- final cta ---------- */
+  .final{
+    text-align:center;padding:120px 24px 100px;
+    border-top:1px solid var(--line);background:var(--ink-soft);position:relative;overflow:hidden;
+  }
+  .final::before{
+    content:"";position:absolute;left:50%;top:-340px;transform:translateX(-50%);
+    width:680px;height:680px;border-radius:50%;
+    background:radial-gradient(circle, rgba(201,163,92,.13), transparent 65%);
+  }
+  .final h2{
+    font-family:'Fraunces',serif;font-weight:300;
+    font-size:clamp(2.2rem,5.5vw,3.8rem);line-height:1.05;max-width:16ch;margin:0 auto 26px;
+    position:relative;
+  }
+  .final h2 em{font-style:italic;color:var(--brass-bright)}
+  .final p{color:var(--parchment-dim);max-width:42ch;margin:0 auto 44px;position:relative}
+  footer{
+    padding:34px 24px;text-align:center;color:var(--parchment-dim);
+    font-size:.8rem;border-top:1px solid var(--line);letter-spacing:.05em;
+  }
+  footer a{color:var(--brass);text-decoration:none}
+
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <a class="brand" href="#">The <span>Knowledge</span> Vault</a>
+    <a class="pill" href="https://whop.com" target="_blank" rel="noopener">Join on Whop</a>
+  </header>
+
+  <section class="hero">
+    <div class="dial"><i></i></div>
+    <div class="kicker">A curated membership on Whop</div>
+    <h1>Five skills.<br>One <em>vault</em>.</h1>
+    <p>Stop buying five courses from five different gurus. The Knowledge Vault curates what actually works across the five skills that compound into a strong life — and keeps it all in one place.</p>
+    <div class="cta-row">
+      <a class="btn" href="https://whop.com" target="_blank" rel="noopener">Open the Vault</a>
+      <small>New drops added regularly.</small>
+    </div>
+  </section>
+</div>
+
+<section class="strip">
+  <div class="wrap">
+    <p>"I was tired of paying five people to teach me five things. So I built <b>one place</b> that sharpens all of them."</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <section class="skills">
+    <div class="sec-label reveal">What's inside</div>
+    <h2 class="reveal">The five skills that compound on each other.</h2>
+
+    <div class="row reveal">
+      <div class="num">01</div>
+      <h3>Trading &amp; Investing</h3>
+      <p>Make your money work while you sleep. Risk first, hype never.</p>
+    </div>
+    <div class="row reveal">
+      <div class="num">02</div>
+      <h3>Fitness &amp; Discipline</h3>
+      <p>The engine behind everything else. Train the body, steady the mind.</p>
+    </div>
+    <div class="row reveal">
+      <div class="num">03</div>
+      <h3>Marketing</h3>
+      <p>Learn to be seen. Attention is the bridge between skill and income.</p>
+    </div>
+    <div class="row reveal">
+      <div class="num">04</div>
+      <h3>Tech &amp; Programming</h3>
+      <p>Speak the language of the decade. Build instead of waiting.</p>
+    </div>
+    <div class="row reveal">
+      <div class="num">05</div>
+      <h3>Creative Skills</h3>
+      <p>Design, video, writing — the multipliers that make the other four travel.</p>
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="sec-label reveal">How it works</div>
+    <div class="how-grid reveal">
+      <div class="cell">
+        <span class="num">I.</span>
+        <h4>Join the Vault</h4>
+        <p>One membership through Whop. No five separate paywalls, no juggling platforms.</p>
+      </div>
+      <div class="cell">
+        <span class="num">II.</span>
+        <h4>Get curated drops</h4>
+        <p>Distilled lessons, tools and playbooks across all five skills — signal only, no filler.</p>
+      </div>
+      <div class="cell">
+        <span class="num">III.</span>
+        <h4>Compound</h4>
+        <p>Each skill feeds the next. Fitness fuels focus, tech ships ideas, marketing sells them.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="final">
+  <h2 class="reveal">Knowledge is heavy.<br><em>Carry it together.</em></h2>
+  <p class="reveal">Join The Knowledge Vault on Whop and start stacking the five skills that pay you back for life.</p>
+  <a class="btn reveal" href="https://whop.com" target="_blank" rel="noopener">Open the Vault</a>
+</section>
+
+<footer>
+  © 2026 The Knowledge Vault · A membership hosted on <a href="https://whop.com" target="_blank" rel="noopener">Whop</a>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target);} });
+  },{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
